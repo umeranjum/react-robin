@@ -1,5 +1,4 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+import app from 'firebase/app'
 
 // Initialize Firebase
 var config = {
@@ -11,6 +10,10 @@ storageBucket: "react-with-firebase-399a0.appspot.com",
 messagingSenderId: "95720650777"
 };
 
-Firebase.initializeApp(config);
+class Firebase {
+    constructor() {
+      app.initializeApp(config);
+    }
+  }
 
-export default Firebase
+export default firebase
