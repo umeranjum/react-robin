@@ -25,14 +25,14 @@ class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
     this.state = { ...INITIAL_STATE };
-    console.log(this.state)
   }
 
   onSubmit = event => {
+    event.preventDefault();
     const { username, email, passwordOne } = this.state;
 
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
+    this.props.firebase.
+    doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
@@ -41,7 +41,6 @@ class SignUpFormBase extends Component {
         this.setState({ error });
       });
 
-    event.preventDefault();
   }
 
   onChange = event => {
